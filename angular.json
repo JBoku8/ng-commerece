@@ -127,6 +127,10 @@
               "devServerTarget": "ng-commerece:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }
