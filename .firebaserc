@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "angular-demo-80d51": {
+      "hosting": {
+        "ng-commerece": [
+          "angular-demo-80d51"
+        ]
+      }
+    }
+  }
+}
