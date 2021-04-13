@@ -1,7 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
-import { firebaseAuthService } from '../firebase-auth.service';
+import { MustMatch } from '../shared/validators/passwords-match.validator';
+import { firebaseAuthService } from '../shared/services/firebase-auth.service';
+
 
 @Component({
   selector: 'app-reset-password',
@@ -9,10 +16,17 @@ import { firebaseAuthService } from '../firebase-auth.service';
   styleUrls: ['./reset-password.component.scss'],
 })
 export class ResetPasswordComponent implements OnInit {
+  oldPassword:FormControl;
   password: FormControl;
+  confirmPassword: FormControl;
   resetForm: FormGroup;
   buttonHover: boolean = false;
-  constructor(public _firebaseAuth: firebaseAuthService) {
+
+  constructor(
+    public _firebaseAuth: firebaseAuthService,
+    private formBuilder: FormBuilder,
+  ) {
+    this.oldPassword=new FormControl('',Validators.required);
     this.password = new FormControl(
       '',
       Validators.compose([
@@ -24,16 +38,39 @@ export class ResetPasswordComponent implements OnInit {
         ),
       ]),
     );
-    this.resetForm = new FormGroup({
-      password: this.password,
-    });
+    this.confirmPassword = new FormControl('', Validators.required);
+    this.resetForm = this.formBuilder.group(
+      { oldPassword:this.oldPassword,
+        password: this.password,
+        confirmPassword: this.confirmPassword,
+      },
+      { validators: MustMatch('password', 'confirmPassword') },
+    );
   }
+
+  oldPasswordIsInvalid():boolean{
+    return this.oldPassword.invalid && (this.oldPassword.touched || this.buttonHover);
+  }
+  
   passwordIsInvalid(): boolean {
     return this.password.invalid && (this.password.touched || this.buttonHover);
   }
 
-  ngOnInit(): void {}
-  resetPassword(): void {
-    this._firebaseAuth.resetPassword(this.password.value);
+  confirmPasswordIsInvalid(): boolean {
+    return (
+      this.confirmPassword.invalid &&
+      ((this.confirmPassword.touched &&
+        this.password.value &&
+        this.confirmPassword.value !== this.password.value) ||
+        this.buttonHover)
+    );
   }
+
+  resetPassword(): void {
+    this._firebaseAuth.resetPassword(this.oldPassword.value,this.password.value);
+      this.resetForm.reset();
+  }
+
+  ngOnInit(): void {}
+
 }

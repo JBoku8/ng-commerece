@@ -12,11 +12,14 @@ import { environment } from '../environments/environment';
 import { SharedModule } from './shared/shared.module';
 
 import {firebaseConfig} from '../firebaseConfig';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,

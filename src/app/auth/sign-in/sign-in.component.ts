@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ISignInData } from 'src/app/data/interfaces/signInData.interface';
-import { firebaseAuthService } from '../firebase-auth.service';
+
+import { ISignInData } from 'src/app/auth/shared/interfaces/signInData.interface';
+import { firebaseAuthService } from '../shared/services/firebase-auth.service';
 
 @Component({
   selector: 'app-sign-in',
