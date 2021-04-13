@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ISignInData } from 'src/app/data/interfaces/signInData.interface';
+import { firebaseAuthService } from '../firebase-auth.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignInComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _firebaseAuth:firebaseAuthService) { }
 
   ngOnInit(): void {
   }
-
+  signIn(data:ISignInData):void{
+    this._firebaseAuth.signIn(data);
+  }
+  googleSignIn():void{
+    this._firebaseAuth.googleSignIn();
+  }
+  githubSignIn():void{
+    this._firebaseAuth.githubSignIn();
+  }
+  facebookSignIn():void{
+    this._firebaseAuth.facebookSignIn();
+  }
 }
