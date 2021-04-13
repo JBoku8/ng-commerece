@@ -9,7 +9,7 @@ import { ISignUpData } from '../interfaces/signUpData.interface';
 
 @Injectable({
   providedIn: 'root',
-})
+}) 
 export class firebaseAuthService {
   currentUser$ = new Observable<firebase.User | null>();
   errorMessage: string = '';
