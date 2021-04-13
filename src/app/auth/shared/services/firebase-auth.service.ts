@@ -26,7 +26,7 @@ export class firebaseAuthService {
       .then((userInfo) => {
         if (userInfo.user) {
           this._router.navigate(['/user']);
-        }
+        } 
       })
       .catch((error) => {
         this.errorMessage = error.message;
