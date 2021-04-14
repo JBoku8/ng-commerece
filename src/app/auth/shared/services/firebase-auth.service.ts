@@ -9,11 +9,11 @@ import { ISignUpData } from '../interfaces/signUpData.interface';
 
 @Injectable({
   providedIn: 'root',
-}) 
+})
 export class firebaseAuthService {
   currentUser$ = new Observable<firebase.User | null>();
   errorMessage: string = '';
-  infoMessage:string='';
+  infoMessage: string = '';
 
   constructor(private _router: Router, private auth: AngularFireAuth) {
     this.currentUser$ = this.auth.authState;
@@ -26,7 +26,7 @@ export class firebaseAuthService {
       .then((userInfo) => {
         if (userInfo.user) {
           this._router.navigate(['/user']);
-        } 
+        }
       })
       .catch((error) => {
         this.errorMessage = error.message;
@@ -96,20 +96,21 @@ export class firebaseAuthService {
 
   resetPassword(oldPassword: string, newPassword: string): void {
     this.errorMessage = '';
-    this.infoMessage='';
+    this.infoMessage = '';
     let user = firebase.auth().currentUser;
-   
+
     //ვცადოთ სისტემაში ხელახლა შესვლა მითითებული პაროლით. თუ წარმატებით გაიარა ავტორიზაცია,
     //შევცვალოთ პაროლი. ts-ignore დამჭირდა, რადგანაც user-ს აწითლებს.
     //@ts-ignore
-    this.auth.signInWithEmailAndPassword(user.email, oldPassword)
+    this.auth
+      .signInWithEmailAndPassword(user.email, oldPassword)
       .then((userInfo) => {
         if (userInfo.user) {
           //@ts-ignore
           user
             .updatePassword(newPassword)
             .then(() => {
-              this.infoMessage='Password has been successfully updated!';
+              this.infoMessage = 'Password has been successfully updated!';
             })
             .catch((error) => {
               this.errorMessage = error.message;
@@ -123,17 +124,16 @@ export class firebaseAuthService {
 
   forgotPassword(emailAddress: string): void {
     this.errorMessage = '';
-    this.infoMessage='';
+    this.infoMessage = '';
     //მითითებულ მეილზე გავუგზავნოთ პაროლის შეცვლის მეილი
     firebase
       .auth()
       .sendPasswordResetEmail(emailAddress)
       .then(() => {
-        this.infoMessage=`reset email has been sent to ${emailAddress}`;
+        this.infoMessage = `reset email has been sent to ${emailAddress}`;
       })
       .catch((error) => {
         this.errorMessage = error.message;
       });
   }
-
 }
