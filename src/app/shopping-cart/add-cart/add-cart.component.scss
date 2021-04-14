@@ -1,0 +1,59 @@
+.cart {
+    width: 400px;
+    height: auto;
+    background: white;
+    float:right;
+    align-self: right;
+    margin: 0 auto;
+  
+    &:hover {
+      box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+
+}
+h1 {
+    text-align: center;
+    color: #515151;
+    font-weight: 300;
+    padding-top: 15px;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 300;
+  }
+h2 {
+    text-align: center;
+    color: #515151;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 500;
+   }
+   h3 { 
+    text-align: center;
+    margin: 0;
+    color: #727272;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 10px
+  }
+button {
+    
+    background: none;
+    border: 1px solid #d9d9d9;
+    padding: 8px 0px;
+    color: #515151;
+    text-transform: uppercase;
+    font-family: inherit;
+    margin-right: 5px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    
+    &:hover {
+      
+      // background: darken(white, 2%);
+      border: 1px solid #ff9100;
+      color: #fc8600;
+      cursor: pointer;
+      
+    }
+}

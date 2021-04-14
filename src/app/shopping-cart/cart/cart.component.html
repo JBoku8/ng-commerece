@@ -1,0 +1,27 @@
+<!-- <div class="row container"> -->
+
+<div class="cardd" *ngFor="let product of products">
+  <div class="photo">
+    <img src="{{ product.img }}" />
+  </div>
+  <div class="description">
+    <h2>{{ product.name }}</h2>
+    <h3>Fruit</h3>
+    <h1>${{ product.price }}</h1>
+    <p>{{ product.description }}</p>
+    <button>+</button>
+    <button>-</button>
+  </div>
+</div>
+<!-- </div> -->
+<div class="column">
+  <div class="cart">
+    <h2>Your Cart</h2>
+    <h1>Sub Total (0 items): $ 0.00</h1>
+    <div class="mt-4">
+      <button>Proceed to Checkout</button>
+      <h3 class="mb-2">or</h3>
+      <button>Clear Shopping Cart</button>
+    </div>
+  </div>
+</div>
