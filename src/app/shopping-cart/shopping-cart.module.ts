@@ -7,17 +7,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 
-
 @NgModule({
-    declarations: [StoreDesignComponent, AddCartComponent, CartComponent ],
-    imports: [
-      HttpClientModule,
-      CommonModule
-
-    ],
-    providers: [],
-    bootstrap: [],
-    exports: [StoreDesignComponent]
-  })
-  export class ShoppingCartModule {}
-  
+  declarations: [StoreDesignComponent, AddCartComponent, CartComponent],
+  imports: [HttpClientModule, CommonModule],
+  providers: [],
+  bootstrap: [],
+  exports: [StoreDesignComponent, CartComponent, AddCartComponent],
+})
+export class ShoppingCartModule {}
