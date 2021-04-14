@@ -7,9 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { SharedModule } from './shared/shared.module';
+// import { TeamMembersComponent } from './app/team-members/team-members.component';
+import { TeamMembersComponent  } from '../app/team-members/team-members.component'
+import { ProductDetailComponent } from './user/product-detail/product-detail.component';
+import { ArticleCardsComponent } from './team-members/article-cards/article-cards.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, TeamMembersComponent, ArticleCardsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -17,10 +21,11 @@ import { SharedModule } from './shared/shared.module';
       maxAge: 25,
       logOnly: environment.production,
     }),
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot( {}, {}),
     SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
