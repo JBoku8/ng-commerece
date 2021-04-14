@@ -22,7 +22,7 @@
     "@angular/router": "~11.2.0",
     "@ngrx/store": "^11.1.0",
     "@ngrx/store-devtools": "^11.1.0",
-    "bootstrap": "^4.6.0",
+    "bootstrap": "^5.0.0-beta3",
     "firebase": "^8.3.3",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
