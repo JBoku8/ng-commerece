@@ -48,4 +48,3 @@ Thumbs.db
 .vscode/
 firebaseconfig.ts
 package-lock.json
-yarn.lock
