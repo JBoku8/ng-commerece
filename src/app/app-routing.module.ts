@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
-import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
-
 const routes: Routes = [
   {
     path: 'admin',
@@ -18,19 +15,17 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
-  //auth-routing.module-ში გადავიტანე ეს ნაწილი, მაგრამ არ იმუშავა. ამიტომ აქ დავტოვე ისევ.
   {
-    path:'forgotPassword',
-    component:ForgotPasswordComponent
+    path: 'shopping-cart',
+    loadChildren: () =>
+      import('./shopping-cart/shopping-cart.module').then(
+        (m) => m.ShoppingCartModule,
+      ),
   },
   {
-    path:'resetPassword',
-    component:ResetPasswordComponent
-  },
-  //*************************************************************************************** */
-  {
-    path: '*',
+    path: '',
     redirectTo: 'user',
+    pathMatch: 'full',
   },
 ];
 
