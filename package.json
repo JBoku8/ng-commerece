@@ -11,7 +11,7 @@
     "prettier:quick": "pretty-quick --staged",
     "prettier": "prettier --write .",
     "prettier:check": "prettier --config .prettierrc --check \"src/**/*.{ts,scss,html}\"",
-    "prepare": "husky install"
+    "prepare": "npx husky-init"
   },
   "private": true,
   "dependencies": {
