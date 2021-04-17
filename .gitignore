@@ -48,4 +48,4 @@ Thumbs.db
 
 firebaseconfig.ts
 package-lock.json
-.husky
+.husky/
