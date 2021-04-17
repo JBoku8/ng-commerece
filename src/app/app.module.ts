@@ -27,6 +27,7 @@ import { firebaseConfig } from '../../firebaseConfig';
     AngularFireAuthModule,
     AngularFirestoreModule,
     AppRoutingModule,
+    FormsModule,
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
