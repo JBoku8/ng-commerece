@@ -10,7 +10,7 @@
     "e2e": "ng e2e",
     "prettier:quick": "pretty-quick --staged",
     "prettier": "prettier --write ."
-    
+
   },
   "private": true,
   "dependencies": {
@@ -62,7 +62,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn pretty:quick"
+      "pre-commit": "pretty-quick --staged"
     }
   }
 }
