@@ -12,12 +12,9 @@ export class ForgotPasswordComponent implements OnInit {
   email: FormControl;
   resetForm: FormGroup;
   buttonHover: boolean = false;
-  
+
   constructor(public _firebaseAuth: firebaseAuthService) {
-    this.email = new FormControl(
-      '',
-      Validators.compose([Validators.required, Validators.email]),
-    );
+    this.email = new FormControl('', Validators.compose([Validators.required, Validators.email]));
     this.resetForm = new FormGroup({
       email: this.email,
     });

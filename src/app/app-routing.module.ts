@@ -4,8 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'admin',
-    loadChildren: () =>
-      import('./admin/admin.module').then((m) => m.AdminModule),
+    loadChildren: () => import('./admin/admin.module').then((m) => m.AdminModule),
   },
 
   {
@@ -19,16 +18,13 @@ const routes: Routes = [
   {
     path: 'shopping-cart',
     loadChildren: () =>
-      import('./shopping-cart/shopping-cart.module').then(
-        (m) => m.ShoppingCartModule,
-      ),
+      import('./shopping-cart/shopping-cart.module').then((m) => m.ShoppingCartModule),
   },
   {
     path: '',
     redirectTo: 'user',
     pathMatch: 'full',
   },
-
 ];
 
 @NgModule({

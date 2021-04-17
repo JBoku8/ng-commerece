@@ -101,8 +101,9 @@ export class firebaseAuthService {
 
     //ვცადოთ სისტემაში ხელახლა შესვლა მითითებული პაროლით. თუ წარმატებით გაიარა ავტორიზაცია,
     //შევცვალოთ პაროლი. ts-ignore დამჭირდა, რადგანაც user-ს აწითლებს.
-    //@ts-ignore
+
     this.auth
+      //@ts-ignore
       .signInWithEmailAndPassword(user.email, oldPassword)
       .then((userInfo) => {
         if (userInfo.user) {
