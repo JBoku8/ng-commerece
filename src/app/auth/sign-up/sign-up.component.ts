@@ -9,10 +9,10 @@ import { firebaseAuthService } from '../shared/services/firebase-auth.service';
   styleUrls: ['./sign-up.component.scss'],
 })
 export class SignUpComponent implements OnInit {
-  constructor(private _firebaseAuth:firebaseAuthService) {}
+  constructor(private _firebaseAuth: firebaseAuthService) {}
 
   ngOnInit(): void {}
-  signUp(data:ISignUpData){
+  signUp(data: ISignUpData) {
     this._firebaseAuth.signUp(data);
   }
 }

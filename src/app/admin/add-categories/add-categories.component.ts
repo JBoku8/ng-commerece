@@ -4,25 +4,20 @@ import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-add-categories',
   templateUrl: './add-categories.component.html',
-  styleUrls: ['./add-categories.component.scss']
+  styleUrls: ['./add-categories.component.scss'],
 })
 export class AddCategoriesComponent implements OnInit {
+  title: string = '';
 
+  categoryType: string = '';
 
-  title: string = "";
+  desciptionBox: string = '';
 
-  categoryType: string = "";
+  constructor() {}
 
-  desciptionBox: string = "";
-
-  constructor() { }
-
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   addCategory(formValue: NgForm) {
     console.log(formValue.value);
   }
-
 }

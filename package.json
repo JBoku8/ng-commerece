@@ -1,5 +1,5 @@
 {
-  "name": "ng-commerece",
+  "name": "ng-commerce",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,11 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "prettier:quick": "pretty-quick --staged",
+    "prettier": "prettier --write .",
+    "prettier:check": "prettier --config .prettierrc --check \"src/**/*.{ts,scss,html}\"",
+    "prepare": "husky install"
   },
   "private": true,
   "dependencies": {
@@ -38,6 +42,7 @@
     "codelyzer": "^6.0.0",
     "firebase-tools": "^8.0.0",
     "fuzzy": "^0.1.3",
+    "husky": "^6.0.0",
     "inquirer": "^6.2.2",
     "inquirer-autocomplete-prompt": "^1.0.1",
     "jasmine-core": "~3.6.0",
@@ -47,10 +52,24 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
+    "lint-staged": "^10.5.4",
     "open": "^7.0.3",
+    "prettier": "2.2.1",
+    "pretty-quick": "^3.1.0",
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
+    "tslint-config-prettier": "^1.18.0",
     "typescript": "~4.1.2"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,scss,html}": [
+      "yarn prettier:check"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }

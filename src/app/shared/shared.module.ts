@@ -6,12 +6,7 @@ import { FooterComponent } from './footer/footer.component';
 import { SliderComponent } from './slider/slider.component';
 
 @NgModule({
-  declarations: [
-    HeaderComponent,
-    NavigationComponent,
-    FooterComponent,
-    SliderComponent,
-  ],
+  declarations: [HeaderComponent, NavigationComponent, FooterComponent, SliderComponent],
   imports: [CommonModule],
   exports: [HeaderComponent, FooterComponent, SliderComponent],
 })
