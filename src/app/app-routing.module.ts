@@ -5,9 +5,9 @@ import { TeamMembersComponent } from './team-members/team-members.component';
 const routes: Routes = [
   {
     path: 'admin',
-    loadChildren: () =>
-      import('./admin/admin.module').then((m) => m.AdminModule),
+    loadChildren: () => import('./admin/admin.module').then((m) => m.AdminModule),
   },
+
   {
     path: 'user',
     loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
@@ -17,8 +17,14 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
   {
-    path: '*',
+    path: 'shopping-cart',
+    loadChildren: () =>
+      import('./shopping-cart/shopping-cart.module').then((m) => m.ShoppingCartModule),
+  },
+  {
+    path: '',
     redirectTo: 'user',
+    pathMatch: 'full',
   },
   {
     path: 'team-members',

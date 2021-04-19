@@ -1,15 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ISignInData } from 'src/app/auth/shared/interfaces/signInData.interface';
+import { firebaseAuthService } from '../shared/services/firebase-auth.service';
+
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.scss']
+  styleUrls: ['./sign-in.component.scss'],
 })
 export class SignInComponent implements OnInit {
+  constructor(private _firebaseAuth: firebaseAuthService) {}
 
-  constructor() { }
-
-  ngOnInit(): void {
+  ngOnInit(): void {}
+  signIn(data: ISignInData): void {
+    this._firebaseAuth.signIn(data);
   }
-
+  googleSignIn(): void {
+    this._firebaseAuth.googleSignIn();
+  }
+  githubSignIn(): void {
+    this._firebaseAuth.githubSignIn();
+  }
+  facebookSignIn(): void {
+    this._firebaseAuth.facebookSignIn();
+  }
 }
