@@ -18,7 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { firebaseConfig } from '../../firebaseConfig';
 
 @NgModule({
-  declarations: [AppComponent, TeamMembersComponent ],
+  declarations: [AppComponent, TeamMembersComponent, ArticleCardsComponent ],
   imports: [
     BrowserModule,
     FormsModule,
