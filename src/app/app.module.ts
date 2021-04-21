@@ -10,8 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { SharedModule } from './shared/shared.module';
-// import { TeamMembersComponent } from './app/team-members/team-members.component';
 import { TeamMembersComponent  } from '../app/team-members/team-members.component'
+// import { TeamMembersComponent } from './app/team-members/team-members.component';
 import { ProductDetailComponent } from './user/product-detail/product-detail.component';
 import { ArticleCardsComponent } from './team-members/article-cards/article-cards.component';
 import { ShoppingCartModule } from './shopping-cart/shopping-cart.module';
