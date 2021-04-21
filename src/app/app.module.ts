@@ -6,24 +6,26 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { SharedModule } from './shared/shared.module';
+import { TeamMembersComponent  } from '../app/team-members/team-members.component'
+// import { TeamMembersComponent } from './app/team-members/team-members.component';
+import { ProductDetailComponent } from './user/product-detail/product-detail.component';
+import { ArticleCardsComponent } from './team-members/article-cards/article-cards.component';
 import { ShoppingCartModule } from './shopping-cart/shopping-cart.module';
 import { CommonModule } from '@angular/common';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { firebaseConfig } from '../../firebaseConfig';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, TeamMembersComponent, ArticleCardsComponent ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    // AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
     AppRoutingModule,
@@ -32,7 +34,7 @@ import { firebaseConfig } from '../../firebaseConfig';
       maxAge: 25,
       logOnly: environment.production,
     }),
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot( {}, {}),
     SharedModule,
     ShoppingCartModule,
     CommonModule,
@@ -41,3 +43,4 @@ import { firebaseConfig } from '../../firebaseConfig';
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
