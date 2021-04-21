@@ -10,12 +10,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { SharedModule } from './shared/shared.module';
+// import { TeamMembersComponent } from './app/team-members/team-members.component';
 import { TeamMembersComponent  } from '../app/team-members/team-members.component'
+import { ProductDetailComponent } from './user/product-detail/product-detail.component';
 import { ArticleCardsComponent } from './team-members/article-cards/article-cards.component';
 import { ShoppingCartModule } from './shopping-cart/shopping-cart.module';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-// import { firebaseConfig } from '../../firebaseConfig';
+import { firebaseConfig } from '../../firebaseConfig';
 
 @NgModule({
   declarations: [AppComponent, TeamMembersComponent, ArticleCardsComponent ],
@@ -27,6 +29,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AngularFireAuthModule,
     AngularFirestoreModule,
     AppRoutingModule,
+    FormsModule,
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
